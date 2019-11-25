@@ -41,6 +41,35 @@ $student = array(
   array("Anna", "Pawlak"),
 );
 
+$zad= array(
+array(
+           array(
+                     array(
+                                array(
+                                           "jd"
+                                          )
+                               )
+                     )
+           )
+);
+function ShowArray5($tab){
+foreach ($zad as $i){
+                     foreach ($i as $j){
+                     foreach ($j as $k){
+                     foreach ($k as $m){
+                     foreach ($n as $n){
+                     echo $n;
+                    }
+                    }
+                    }
+                    }
+                    }
+}
+
+echo "<pre>";
+print_r($zad);
+echo "</pre>";
+
 //echo $student[2][0];
 
 function ShowArrayMore($student) {
