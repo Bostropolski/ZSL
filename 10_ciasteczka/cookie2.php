@@ -1,5 +1,5 @@
 <?php
-/*użydkownik podaje w formularzu: imie,nazwisko,wiek,narodowość
+/*użytkownik podaje w formularzu: imie,nazwisko,wiek,narodowość
 Sprawdź czy przesłał wszystkie dane, jeśli tak to wyświetl mu na stronie cookieSuccess.php
 komunikat: przesłany zmienna sesyjną o trści: "prawidłowo przesłany formularz"
 imie i nazwisko przypisz dozmiennych sesyjnych
