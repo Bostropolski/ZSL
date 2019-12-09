@@ -52,6 +52,8 @@ if (isset($_POST['towar']))
   $promocja = $row['cena'] * 0.85;
   echo "<br>";
   echo round($promocja,2);
+  
+  mysqli_close($connect);
 }
 
  ?>
