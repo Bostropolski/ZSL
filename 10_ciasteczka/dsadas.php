@@ -27,7 +27,7 @@ Zabezpiecz formularz przed podaniem danych, które będą mieć więcej niż 10 
      </form>
      <?php
 If(!empty($_POST["Imie"])&& ($_POST["Nazwisko"])&& ($_POST["Wiek"])&& ($_POST["Narodowość"]) ){
- $imie=$_POST[Imie];
+ $imie=$_POST["Imie"];
 $nazwisko=$_POST["Nazwisko"];
 $wiek=$_POST["Wiek"];
 $narodowosc=$_POST["Narodowość"];
