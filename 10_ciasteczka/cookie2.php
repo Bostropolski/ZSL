@@ -26,7 +26,24 @@ Zabezpiecz formularz przed podaniem danych, które będą mieć więcej niż 10 
        <input type="text" name="Narodowość" placeholder="Podaj narodowość:">
      </form>
      <?php
+If(!empty($_POST["Imie"])&& ($_POST["Nazwisko"])&& ($_POST["Wiek"])&& ($_POST["Narodowość"]) ){
+ $imie=$_POST[Imie];
+$nazwisko=$_POST[Nazwisko];
+$wiek=$_POST[Wiek];
+$narodowosc=$_POST[Narodowość];
+$dl1=strlen ($imie);
+$dl2=strlen ($nazwisko);
+$dl3=strlen ($narodowosc);
+
+if(dl1<11 && dl2<11 && dl3<11){
+ session start();
+  $_SESSION["name"]= $imie," ",$nazwisko;
+setcookie ("wiek",$wiek);
+setcookie ("narodowosc",$narodowosc);
+}
+}
 
       ?>
+<a href="./cookieSuccess.php">Strona cookieSucces</a>
    </body>
  </html>
