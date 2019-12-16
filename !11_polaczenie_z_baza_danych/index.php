@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Sklep Papierniczy</title>
+    <link rel="stylesheet" href="../css/form.css">
   </head>
   <body>
 
@@ -32,7 +33,7 @@
           $rezultat = mysqli_query($connect,$sql);
 
           while ($row = mysqli_fetch_assoc($rezultat)){
-            echo "<option>",$row['nazwa'],"</option>";
+            echo "<option value=\"$row[nazwa]\">$row[nazwa],</option>";
           }
           mysqli_close($connect);
           ?>
@@ -56,9 +57,38 @@ if (isset($_POST['towar']))
 
   $promocja = $row['cena'] * 0.85;
   echo "<br>";
-  echo round($promocja,2);
+  echo round($promocja,2),"<hr>";
 }
 
+  // wyświetlenie tabeli z produktem
+  $sql = "SELECT * FROM `towary` WHERE nazwa=\"$towar\"";
+  $result = mysqli_query($connect,$sql);
+  $row = mysqli_fetch_assoc($result);
+  ?>
+<table>
+  <tr>
+    <th>Nazwa</th>
+    <th>Cena</th>
+    <th>Promocja</th>
+    <th>Dostawca</th>
+  </tr>
+  <tr>
+    <?php
+      echo <<<ROW
+      <td>$row[nazwa]</td>
+      <td>$row[cena]</td>
+      <td>$row[promocja]</td>
+      <td>$row[idDostawcy]</td>
+ROW;
+     ?>
+  </tr>
+</table>
+
+
+
+  <?
+
+mysqli_close($connect);
  ?>
   </body>
 </html>
