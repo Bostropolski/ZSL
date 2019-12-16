@@ -64,6 +64,12 @@ if (isset($_POST['towar']))
   $sql = "SELECT * FROM `towary` WHERE nazwa=\"$towar\"";
   $result = mysqli_query($connect,$sql);
   $row = mysqli_fetch_assoc($result);
+
+  $sql2 = "SELECT * FROM `dostawcy`";
+  $result2 = mysqli_query($connect,$sql2);
+  $row2 = mysqli_fetch_assoc($result2)
+
+  
   ?>
 <table>
   <tr>
@@ -77,15 +83,26 @@ if (isset($_POST['towar']))
       echo <<<ROW
       <td>$row[nazwa]</td>
       <td>$row[cena]</td>
-      <td>$row[promocja]</td>
+      <td>$promocja</td>
       <td>$row[idDostawcy]</td>
 ROW;
      ?>
   </tr>
 </table>
-
-
-
+<table>
+  <tr>
+    <th>Nazwa dostawcy</th>
+    <th>Adres</th>
+  </tr>
+  <tr>
+    <?php
+    echo <<<TAB
+    <td>$row2[nazwa]</td>
+    <td>$row2[adres]</td>
+TAB;
+    ?>
+  </tr>
+</table>
   <?
 
 mysqli_close($connect);
