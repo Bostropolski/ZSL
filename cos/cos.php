@@ -20,6 +20,8 @@ if(!empty($_POST['liczba'])){
   $GLOBALS['liczba'];
 }
 $i=0;
+if($liczba>0) {
+  ob_clean();
 
 while($i<$liczba)
 {
@@ -34,12 +36,25 @@ FORM;
         }
 $i++;
 }
+echo <<< TEXT
+<form method="post">
+<input type="submit" name="button" value="Zatwierdź">
+</form>
+TEXT;
+
+
 function ShowArray($imie)
   {
-    for ($i=0; $i < count($imie) ; $i++) {
+    for ($i=0; $i < count($ludzie) ; $i++) {
     $j= $i+1;
     echo "osoba $j: $imie[$i]<br> ";
   }
+}
+}
+if($j>1){
+  ob_clean();
+  echo ShowArray($imie);
+
 }
      ?>
   </body>
