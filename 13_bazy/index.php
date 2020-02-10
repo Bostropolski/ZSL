@@ -22,6 +22,13 @@
 
       if ($result = mysqli_query($connect, $sql)) {
         //echo "Prawidłowe zapytanie do bazy";
+        $_SESSION['num'] = mysqli_num_rows($result);
+        echo 'Ilość rekordów w tabeli user ',$_SESSION['num'],'<br><br>';
+        if (isset($_SESSION['oldnum'])) {
+          if($_SESSION['oldnum']>$_SESSION['num']){
+            echo "Dodano nowy rekord";
+          }
+        }
         echo <<< TAB
 
         <table>
@@ -36,9 +43,9 @@ TAB;
           echo <<< ROW
 
           <tr>
-            <td>$row[name]</td>
-            <td>$row[surname]</td>
-            <td>$row[birthday]</td>
+            <td>$row[imie]</td>
+            <td>$row[nazwisko]</td>
+            <td>$row[data_ur]</td>
             <td><a href="./scripts/del_user.php?id=$row[id]">Usuń</a></td>
           </tr>
 ROW;
@@ -50,11 +57,41 @@ ROW;
         ?>
 
      </table>
-     <form action="add_user.php" method="post"><br><br>
+     <form action="scripts/add_user.php" method="post"><br><br>
        <input type="text" name="name" value=""><br><br>
        <input type="text" name="surname" value=""><br><br>
        <input type="date" name="birthday"><br><br>
        <input type="submit" name="button" value="Dodaj użydkownika">
      </form>
+     <hr><hr>
+     <h3>Color</h3>
+     <?php
+$sql = "SELECT * FROM `color`";
+$result = mysqli_query($connect, $sql);
+echo <<< COLOR
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>COLOR</th>
+
+
+ </tr>
+COLOR;
+while($row = mysqli_fetch_assoc($result)) {
+  echo <<< LINIA
+
+  <tr>
+    <td>$row[id]</td>
+    <td>$row[color]</td>
+  </tr>
+LINIA;
+}
+      ?>
+    </table>
+      <form action="scripts/add_color.php" method="post"><br><br>
+        <input type="text" name="color" placeholder="color"><br><br>
+        <input type="submit" name="button" value="Dodaj kolor">
+      </form>
   </body>
 </html>
