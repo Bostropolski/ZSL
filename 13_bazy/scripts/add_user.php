@@ -7,7 +7,7 @@ $surname=$_POST['surname'];
 $birthday=$_POST['birthday'];
 
 require_once('../connect.php');
-$sql = "INSERT INTO `user`(`imie`, `nazwisko`, `data_ur`) VALUES ('$name','$surname','$birthday')";
+$sql = "INSERT INTO `user`(`name`, `surname`, `birthday`) VALUES ('$name','$surname','$birthday')";
 
 if ( mysqli_query($connect,$sql)){
     $_SESSION['oldnum'] = $_SESSION['num'];

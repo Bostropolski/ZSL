@@ -43,10 +43,11 @@ TAB;
           echo <<< ROW
 
           <tr>
-            <td>$row[imie]</td>
-            <td>$row[nazwisko]</td>
-            <td>$row[data_ur]</td>
+            <td>$row[name]</td>
+            <td>$row[surname]</td>
+            <td>$row[birthday]</td>
             <td><a href="./scripts/del_user.php?id=$row[id]">Usuń</a></td>
+            <td><a href="./?update_user=$row[id]">Aktualizuj</a></td>
           </tr>
 ROW;
         }
@@ -61,7 +62,7 @@ ROW;
        <input type="text" name="name" value=""><br><br>
        <input type="text" name="surname" value=""><br><br>
        <input type="date" name="birthday"><br><br>
-       <input type="submit" name="button" value="Dodaj użydkownika">
+       <input type="submit" name="button" value="Dodaj użytkownika">
      </form>
      <hr><hr>
      <h3>Color</h3>
@@ -93,5 +94,25 @@ LINIA;
         <input type="text" name="color" placeholder="color"><br><br>
         <input type="submit" name="button" value="Dodaj kolor">
       </form>
+      <?php
+if (isset($_GET['update_user'])){
+      $id = $_GET['update_user'];
+      $sql = "select * from user where id='$id'";
+      $result = mysqli_query($connect, $sql);
+      $user = mysqli_fetch_assoc($result);
+        echo "<hr>","<h3>Aktualizacja użydkownika</h3>",$user['name'];
+      $name= $user['name'];
+      $surname= $user['surname'];
+      $birthday= $user['birthday'];
+  echo <<<FORM
+<form action="scripts/update_user.php" method="post"><br><br>
+  <input type="text" name="name" value="$name"><br><br>
+  <input type="text" name="surname" value="$surname"><br><br>
+  <input type="date" name="birthday"><br><br>
+  <input type="submit" name="button" value="Aktualizuj użytkownika">
+</form>
+FORM;
+}
+       ?>
   </body>
 </html>
