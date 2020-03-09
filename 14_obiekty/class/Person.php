@@ -18,7 +18,7 @@ function setDate($date){
 $this->date=$date;
 }
 
-function setPerson(){
+public function setPerson($name,$surname,$city,$date){
   $this->name=$name;
   $this->surname=$surname;
   $this->city=$city;
@@ -28,16 +28,16 @@ function setPerson(){
 function show(){
   echo <<< SHOW
   Twoje dane:<br>
-  Imie i Nazwisko: $name $surname <br>
-  Miasto: $city <br>
-  Data urodzenia: $date <br>
+  Imie i Nazwisko: $this->name   $this->surname <br>
+  Miasto: $this->city <br>
+  Data urodzenia: $this->date <br>
 
 SHOW;
 }
 
 }
-$person = new Person();
-$p
+//$person = new Person();
+
 
 
  ?>

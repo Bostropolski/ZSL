@@ -1,0 +1,8 @@
+konstruktor
+
+Utwórz klase o nazwie car
+W klasie car dodaj konstruktor ktory ma wartosci przypisane do skladowej ilosci kol.
+Uzydkownik musi podac wartosci z konstruktora podczas twozenia obiektu: kraj pochodzenia, marka, model
+Utworz dwa obiekty i przypisz im wartosci poczatkowe
+Utworz metode wyswietlajaca wszystkie dane z klasy car
+Wywolaj ta metode na dwoch utworzonych wczesniej obiektach
