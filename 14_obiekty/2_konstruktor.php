@@ -14,7 +14,7 @@ class Person{
 function getALL(){
   echo <<<X
 <hr>
-Imie:$this->name <br>
+Imie:$this->name  <br>
 Nazwisko:$this->surname <br>
 Miasto:$this->city <br>
 
