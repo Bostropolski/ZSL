@@ -1,0 +1,34 @@
+#top{
+  height:100px;
+  background-color: #E61C66;
+
+}
+#mid{
+  height:100px;
+  background-color: 	#f5accb;
+
+
+}
+#bot{
+  height:300px;
+  background-color: #E61C66;
+
+}
+#under{
+  height:100px;
+  background-color: 	#f5accb;
+
+}
+#left{
+  float: left;
+  background-color: red;
+  width: 250px;
+}
+#right{
+float: right;
+margin-top: auto;
+margin-bottom: auto;
+height: 300px;
+width: 50%;
+
+}
